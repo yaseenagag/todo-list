@@ -18,7 +18,6 @@ The App: As a user...
 - [ ] I can delete unwanted to do list items.
 - [ ] I can check items off as completed.
 - [ ] I can rearrange to do list items. 
-- [ ] I can log into my account.
 - [ ] I can edit the text on existing to do's.
 
 Additional Specs:
@@ -30,6 +29,8 @@ Additional Specs:
 - [ ] The artifact produced is properly licensed, preferably with the [MIT license](https://opensource.org/licenses/MIT).
 
 #### Stretch Goals/Nice to Have's:
+- [ ] I can log into my account.
+- [ ] Autocomplete in the input form.
 - [ ] I can create mulitple lists of to do's.
 - [ ] Write the app using ES6 and deploy using babel.
 

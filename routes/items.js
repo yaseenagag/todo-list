@@ -9,4 +9,11 @@ router.get('/', function(req, res, next) {
   })
 });
 
+/* POST create new item. */
+router.post('/', function(req, res, next) {
+  const description = req.body.description
+
+  Task.create(description).then(() => res.redirect('/items'))
+});
+
 module.exports = router;

@@ -17,13 +17,13 @@ The App: As a user...
 - [ ] I can create to do list items.
   - views (pug)
     - [x] view for all list items
-    - [ ] form for creating new list items
+    - [x] form for creating new list items
   - routes (express)
     - [x] `GET /items` route to show all list items
-    - [ ] `POST /items` route to create a new list item using POST data
+    - [x] `POST /items` route to create a new list item using POST data
   - data model (js, postgres)
     - [x] show items from db in item list view
-    - [ ] app logic to insert a list item into db after creating
+    - [x] app logic to insert a list item into db after creating
 - [ ] I can delete unwanted to do list items.
 - [ ] I can check items off as completed.
 - [ ] I can rearrange to do list items.

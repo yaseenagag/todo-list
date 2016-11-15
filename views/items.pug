@@ -1,25 +1,12 @@
 extends layout
 
 block content
+  h1 Items
+
   ul.items
     each item in items
       li.item= item.description
 
-  //-
-  //- .add-tab
-  //-   form(action='/tabs', method='post')
-  //-     input(type='text', name='new-tab' placeholder='Tab Title')
-  //-     button(type='submit') Create Tab
-  //-
-  //- .add-task
-  //-   form(action='/tasks', method='post' )
-  //-     select(name='tab-id')
-  //-       each tab in tabs
-  //-         option(label=`${tab.title}`, value=`${tab.id}`)
-  //-     input(type='text', name='new-task' placeholder='Task Description')
-  //-     button(type='submit') Create Task
-  //-
-  //- ul.nav.nav-tabs(role='tablist')
-  //-   each tab, index in tabs
-  //-     li(role='presentation', class=`${index === 0 ? 'active' : ''}`)
-  //-       a(href=`#tab-${tab.id}`, aria-controls=`${tab.title}`, role='tab', data-toggle='tab')= tab.title
+  form(action='/items', method='post')
+    input(type='text', name='description' placeholder='Item description')
+    button(type='submit') Create

@@ -11,7 +11,8 @@ const createTab = 'INSERT INTO tabs (title, user_id) VALUES ($1, $2) RETURNING *
 
 const createTask = 'INSERT INTO tasks (description, tab_id) VALUES ($1, $2) RETURNING *'
 
-const allTasks = 'SELECT t.id as tabs_id, t.title, i.* FROM tabs t JOIN tasks i ON i.tab_id=t.id WHERE t.user_id=$1'
+// const allTasks = 'SELECT t.id as tabs_id, t.title, i.* FROM tabs t JOIN tasks i ON i.tab_id=t.id WHERE t.user_id=$1'
+const allTasks = 'SELECT * FROM tasks'
 
 const allTabsForUser = 'SELECT * FROM tabs WHERE user_id=$1'
 
@@ -48,6 +49,9 @@ const Tab = {
 }
 
 const Task = {
+  all: () => {
+    return db.any( allTasks )
+  },
   create: (tab_id, description) => {
     return db.one( createTask, [description, tab_id])
   },
@@ -68,3 +72,4 @@ const Task = {
 
 module.exports = {
   User, Task, Tab
+}

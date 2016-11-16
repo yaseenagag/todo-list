@@ -31,7 +31,21 @@ router.get( '/login', (req, res, next) => {
   res.render('login', { user: req.user})
 })
 
-router.post('/login', passport.authenticate( 'local', loginRedirects ))
+router.post('/login', (req, res) => {
+  const email = req.body.email
+  const password = req.body.password
+  req.session.user = email
+  console.log(req.session.user)
+  User.login(email, password).then( user => {
+    if(user !== null) {
+      res.redirect('../../index')
+    }
+    else {
+      res.redirect('/login')
+    }
+  }
+  )
+})
 
 router.get( '/logout', (request, response) => {
   request.logout()

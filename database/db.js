@@ -68,3 +68,4 @@ const Task = {
 
 module.exports = {
   User, Task, Tab
+}

@@ -15,14 +15,23 @@ Goals
 
 The App: As a user...
 - [ ] I can create to do list items.
+  - views (pug)
+    - [x] view for all list items
+    - [x] form for creating new list items
+  - routes (express)
+    - [x] `GET /items` route to show all list items
+    - [x] `POST /items` route to create a new list item using POST data
+  - data model (js, postgres)
+    - [x] show items from db in item list view
+    - [x] app logic to insert a list item into db after creating
 - [ ] I can delete unwanted to do list items.
 - [ ] I can check items off as completed.
-- [ ] I can rearrange to do list items. 
+- [ ] I can rearrange to do list items.
 - [ ] I can edit the text on existing to do's.
 
 Additional Specs:
 - [ ] Create the back end using node and express.
-- [ ] Deploy the app to heroku. 
+- [ ] Deploy the app to heroku.
 - [ ] Create a database of to do list items.
 - [ ] JS Lint finds no mistakes
 - [ ] Follow good Git team behaviors (do all your work on branches & submit pull requests for review before merging to master)

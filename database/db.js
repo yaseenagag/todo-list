@@ -9,9 +9,11 @@ const createUser = 'INSERT INTO users (email, password) VALUES ($1, $2) RETURNIN
 
 const createTab = 'INSERT INTO tabs (title, user_id) VALUES ($1, $2) RETURNING *'
 
-const createTask = 'INSERT INTO tasks (description, tab_id) VALUES ($1, $2) RETURNING *'
+const createTask = 'INSERT INTO tasks (description) VALUES ($1) RETURNING *'
+const createTaskWithTab = 'INSERT INTO tasks (description, tab_id) VALUES ($1, $2) RETURNING *'
 
-const allTasks = 'SELECT t.id as tabs_id, t.title, i.* FROM tabs t JOIN tasks i ON i.tab_id=t.id WHERE t.user_id=$1'
+// const allTasks = 'SELECT t.id as tabs_id, t.title, i.* FROM tabs t JOIN tasks i ON i.tab_id=t.id WHERE t.user_id=$1'
+const allTasks = 'SELECT * FROM tasks'
 
 const allTabsForUser = 'SELECT * FROM tabs WHERE user_id=$1'
 
@@ -48,8 +50,11 @@ const Tab = {
 }
 
 const Task = {
-  create: (tab_id, description) => {
-    return db.one( createTask, [description, tab_id])
+  all: () => {
+    return db.any( allTasks )
+  },
+  create: (description) => {
+    return db.one( createTask, [description])
   },
   update: (id, value) => {
     return db.any( updateDescription, [id, value] )

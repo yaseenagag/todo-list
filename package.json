@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "db:create": "createdb coot",
+    "db:setup": "psql coot < ./database/schema.sql",
+    "db:seed": "psql coot < ./database/sample-data.sql"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

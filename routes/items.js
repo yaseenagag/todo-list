@@ -5,15 +5,25 @@ var Task = require('../database/db.js').Task
 /* GET items list page. */
 router.get('/', function(req, res, next) {
   Task.all().then(tasks => {
-    res.render('items', { title: 'Items', items: tasks });
+    res.render('items', { title: 'Items', items: tasks});
   })
 });
 
 /* POST create new item. */
 router.post('/', function(req, res, next) {
-  const description = req.body.description
+  const title = req.body.title
 
-  Task.create(description).then(() => res.redirect('/items'))
+  Task.create(title).then(() => res.redirect('/items'))
 });
 
-module.exports = router;
+router.post('/delete', function(req, res, next) {
+  const id = req.body.id
+  Task.delete(id).then(() => res.redirect('/items'))
+});
+
+// router.post('/completed', function(req, res, next) {
+//   const id = req.body.id
+//   Task.completeTask(id).then(() => res.redirect('/items'))
+// });
+
+module.exports = router

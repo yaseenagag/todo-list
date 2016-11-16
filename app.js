@@ -25,8 +25,9 @@ app.use(require('stylus').middleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   key: 'app.sess',
-  // store: new MemoryStore(),
-  secret: 'SEKR37'
+  secret: 'SEKR37',
+  resave: false,
+  saveUninitialized: false
 }));
 
 app.use('/', index);

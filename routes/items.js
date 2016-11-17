@@ -31,4 +31,21 @@ router.post('/uncompleted', function(req, res, next) {
   Task.uncompleteTask(id).then(() => res.redirect('/items'))
 });
 
+router.get('/task_details/:id', function(req, res, next) {
+  const task_id = req.params.id
+  Task.oneTask(task_id).then(tasks => {
+    console.log(tasks)
+    res.render('task_details', { items: tasks });
+  })
+});
+
+router.post('/task_details/update/:id', function(req, res, next) {
+  const { id } = req.params
+  const { title, description } = req.body
+  console.log(req.params)
+  Task.update(id, title, description).then(() => {
+    res.redirect('/items');
+  })
+});
+
 module.exports = router

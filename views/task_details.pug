@@ -2,4 +2,19 @@ extends layout
 
 block content
   div
-    a.button
+    h4=items.title
+    p=items.description
+    form(method='POST' action=`/items/task_details/update/${items.id}`)
+            div
+              label(for='name') Task:
+              input(type='text', value= items.title, name='title')
+            div
+              label(for='description') Description:
+              input(type='text', placeholder='Enter a description', name='description')
+            button(type='submit') Submit
+
+    //- button( type="button" href='/updateBook/' + book.id ) UpdateBook
+    //-
+    //- a.btn.btn-danger( href='/deleteBook/' + book.id ) Delete Book
+    //- div
+    //-   img( src=book.image_url )

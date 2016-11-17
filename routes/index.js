@@ -6,9 +6,4 @@ router.get('/', function(req, res, next) {
   res.redirect('/users/login');
 });
 
-router.get('/index', function(req, res, next) {
-  console.log(req.session.user)
-  res.send(`User is logged in as: ${req.session.user}`)
-})
-
 module.exports = router;

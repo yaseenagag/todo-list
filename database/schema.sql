@@ -15,7 +15,8 @@ CREATE TABLE tabs (
 DROP TABLE IF EXISTS tasks;
 CREATE TABLE tasks (
   id SERIAL PRIMARY KEY,
-  description VARCHAR(255),
+  title VARCHAR(255),
+  description VARCHAR(512),
   completed BOOLEAN DEFAULT false,
   tab_id SERIAL
 );

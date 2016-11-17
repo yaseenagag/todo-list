@@ -2,6 +2,135 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #eee;
+  color: #333;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5em;
+}
+header,
+section {
+  background-color: #fff;
+  margin: 0 auto 2rem;
+  padding: 1rem 2rem 2rem;
+  width: 80%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.2em;
+  margin-bottom: 1.5rem;
+}
+h1 {
+  font-size: 2rem;
+  text-align: left;
+}
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
 a {
-  color: #00b7ff;
+  color: #b13131;
+  text-decoration: none;
+}
+p {
+  margin-bottom: 1.5rem;
+}
+h2 + p {
+  color: #757575;
+  font-family: Montserrat, Helvetica Neue, Helvetica, Arial, sans-serif;
+  letter-spacing: 1px;
+  margin-top: -0.5rem;
+  text-transform: uppercase;
+}
+p code {
+  background-color: rgba(251,175,93,0.25);
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0 0.25rem;
+  padding: 0 0.25rem;
+}
+p.note {
+  background-color: #c4df9b;
+  border-left: 0.5rem solid rgba(0,0,0,0.25);
+  padding: 1rem;
+}
+pre {
+  background-color: rgba(0,0,0,0.75);
+  border-left: 0.5rem solid rgba(0,0,0,0.5);
+  color: #fbaf5c;
+  margin: 0;
+  padding: 1rem;
+}
+ul {
+  border-bottom: 1px solid #ccc;
+  list-style: none;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+nav li {
+  background-image: linear-gradient(to bottom, transparent 50%, #a2d39c 50%, #a2d39c 95%, #7cc576 95%);
+  background-size: 100% 200%;
+  background-position: top center;
+  color: #666;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+nav li:hover {
+  background-position: bottom center;
+  color: rgba(0,0,0,0.75);
+}
+nav li a {
+  color: #666;
+  display: block;
+  padding: 1rem 0;
+  transition: all 0.25s ease-in-out;
+}
+nav .css-toggle {
+  background-color: #ddd;
+  color: #333;
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.25s ease-in-out;
+}
+nav .css-toggle:hover {
+  background-color: #fbaf5c;
+  color: #333;
+}
+#sc1 ul {
+  display: flex;
+  width: 100%;
+}
+#sc1 ul li {
+  flex: 1 1 100%;
+}
+li.item {
+  text-shadow: 1px 1px #888;
+}
+li.item span.completed {
+  background-color: #ffa500;
+}
+.dropdown-content:hover {
+  background-color: #f1f1f1;
+}
+.dropdown-content {
+  display: true;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }

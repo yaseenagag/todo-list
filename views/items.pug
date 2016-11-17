@@ -8,7 +8,7 @@ block content
       li.item
         -const itemid = `${item.id}`
         -var completed = `${item.completed}`
-        a(href=`items/details/${item.id}`) #{item.title}
+        a(href=`items/task_details/${item.id}`) #{item.title}
         span &nbsp; #{item.id}
         span &nbsp;
         form(action='/items/completed', method='post')

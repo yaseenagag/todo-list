@@ -3,12 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/users/login');
+  res.redirect('/items');
 });
-
-router.get('/index', function(req, res, next) {
-  console.log(req.session.user)
-  res.send(`User is logged in as: ${req.session.user}`)
-})
 
 module.exports = router;

@@ -5,3 +5,52 @@ body {
 a {
   color: #00b7ff;
 }
+ul {
+  border-bottom: 1px solid #ccc;
+  list-style: none;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+li {
+  background-image: linear-gradient(to bottom, transparent 50%, #a2d39c 50%, #a2d39c 95%, #7cc576 95%);
+  background-size: 100% 200%;
+  background-position: top center;
+  color: #666;
+  display: block;
+  text-align: center;
+  transition: all 0.25s ease-in-out;
+}
+li a {
+  color: #666;
+  display: block;
+  padding: 1rem 0;
+  transition: all 0.25s ease-in-out;
+  text-decoration: none;
+}
+li:hover {
+  background-position: bottom center;
+  color: rgba(0,0,0,0.75);
+}
+#sc1 ul {
+  display: flex;
+  width: 100%;
+}
+#sc1 ul li {
+  flex: 1 1 100%;
+}
+li.item {
+  text-shadow: 1px 1px #888;
+}
+li.item span.completed {
+  background-color: #ffa500;
+}
+.dropdown-content:hover {
+  background-color: #f1f1f1;
+}
+.dropdown-content {
+  display: true;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}

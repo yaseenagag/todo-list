@@ -5,8 +5,28 @@ block content
 
   ul.items
     each item in items
-      li.item= item.description
+      li.item
+        -const itemid = `${item.id}`
+        -var completed = `${item.completed}`
+        a(href=`items/details/${item.id}`) #{item.title}
+        span &nbsp; #{item.id}
+        span &nbsp;
+        form(action='/items/completed', method='post')
+          if completed == 'true'
+            input.checkbox(type='checkbox', name='checkbox', value= itemid, checked)
+            span.completed Completed?
+          if completed == 'false'
+            input.checkbox(type='checkbox', name='checkbox', value= itemid)
+            span.completed Completed?
+          br
+        form(action='/items/delete', method='post')
+          input(type='hidden', name='id', value= itemid)
+          button.radio(type='submit') DELETE
+          //- form(action='/items/', method='post')
+          //-   input(type='hidden', name='id', value=`${item.id}`)
+          //-   button(type='submit') DELETE
 
-  form(action='/items', method='post')
-    input(type='text', name='description' placeholder='Item description')
-    button(type='submit') Create
+
+    form(action='/items', method='post')
+      input(type='text', name='title' placeholder='Item title')
+      button(type='submit') Create

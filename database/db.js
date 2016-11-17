@@ -13,7 +13,7 @@ const createTask = 'INSERT INTO tasks (title) VALUES ($1) RETURNING *'
 const createTaskWithTab = 'INSERT INTO tasks (title, tab_id) VALUES ($1, $2) RETURNING *'
 
 // const allTasks = 'SELECT t.id as tabs_id, t.title, i.* FROM tabs t JOIN tasks i ON i.tab_id=t.id WHERE t.user_id=$1'
-const allTasks = 'SELECT * FROM tasks'
+const allTasks = 'SELECT * FROM tasks ORDER BY id'
 
 const allTabsForUser = 'SELECT * FROM tabs WHERE user_id=$1'
 

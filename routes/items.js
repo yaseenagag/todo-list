@@ -21,9 +21,14 @@ router.post('/delete', function(req, res, next) {
   Task.delete(id).then(() => res.redirect('/items'))
 });
 
-// router.post('/completed', function(req, res, next) {
-//   const id = req.body.id
-//   Task.completeTask(id).then(() => res.redirect('/items'))
-// });
+router.post('/completed', function(req, res, next) {
+  const id = req.body.id
+  Task.completeTask(id).then(() => res.redirect('/items'))
+});
+
+router.post('/uncompleted', function(req, res, next) {
+  const id = req.body.id
+  Task.uncompleteTask(id).then(() => res.redirect('/items'))
+});
 
 module.exports = router

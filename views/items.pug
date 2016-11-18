@@ -3,14 +3,13 @@ extends layout
 block content
   h1 Items
 
-  ul.items
+  ul#sortable_id
     each item in items
-      li.item
-        -const itemid = `${item.id}`
-        -var completed = `${item.completed}`
+      -var itemid = `${item.id}`
+      -var completed = `${item.completed}`
+      li(id=`${itemid}`)
         a(href=`items/task_details/${item.id}`) #{item.title}
-        span &nbsp; #{item.id}
-        span &nbsp;
+        h2= item.description
         form(action='/items/completed', method='post')
           if completed == 'true'
             input.checkbox(type='checkbox', name='checkbox', value= itemid, checked)
@@ -19,9 +18,9 @@ block content
             input.checkbox(type='checkbox', name='checkbox', value= itemid)
             span.completed Completed?
           br
-        form(action='/items/delete', method='post')
-          input(type='hidden', name='id', value= itemid)
-          button.radio(type='submit') DELETE
+          br
+
+
           //- form(action='/items/', method='post')
           //-   input(type='hidden', name='id', value=`${item.id}`)
           //-   button(type='submit') DELETE

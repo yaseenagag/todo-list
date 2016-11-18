@@ -7,11 +7,15 @@ block content
     form(method='POST' action=`/items/task_details/update/${items.id}`)
             div
               label(for='name') Task:
-              input(type='text', value= items.title, name='title')
+              input.update(type='text', value= items.title, name='title')
             div
               label(for='description') Description:
-              input(type='text', placeholder='Enter a description', name='description')
+              input.update(type='text', placeholder='Enter a description', name='description')
             button(type='submit') Submit
+
+    form(action=`/items/task_details/delete/${items.id}`, method='post')
+      input(type='hidden', name='id', value= itemid)
+      button.radio(type='submit') DELETE
 
     //- button( type="button" href='/updateBook/' + book.id ) UpdateBook
     //-

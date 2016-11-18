@@ -1,11 +1,22 @@
-var express = require('express');
-var router = express.Router();
-var Task = require('../database/db.js').Task
+const express = require('express');
+const router = express.Router();
+const Task = require('../database/db.js').Task;
+const Orders = require('../database/db.js').Orders;
 
 /* GET items list page. */
 router.get('/', function(req, res, next) {
-  Task.all().then(tasks => {
-    res.render('items', { title: 'Items', items: tasks});
+  // Promise.all([Task.all(),
+  //   Orders.retrieve()]).then(results => {
+  //     const tasks = results[0]
+  //     const orders = results[1].order_array
+  //     const items = []
+  //   orders.forEach( ord => { }
+  //   for(var i = 0 ; i < tasks.length; i++) {
+  //
+  //   }
+
+  Task.all().then( results => {
+    res.render('items', { title: 'Items', items: results});
   })
 });
 
@@ -16,8 +27,8 @@ router.post('/', function(req, res, next) {
   Task.create(title).then(() => res.redirect('/items'))
 });
 
-router.post('/delete', function(req, res, next) {
-  const id = req.body.id
+router.post('/task_details/delete/:id', function(req, res, next) {
+  const id = req.params.id
   Task.delete(id).then(() => res.redirect('/items'))
 });
 
@@ -29,6 +40,12 @@ router.post('/completed', function(req, res, next) {
 router.post('/uncompleted', function(req, res, next) {
   const id = req.body.id
   Task.uncompleteTask(id).then(() => res.redirect('/items'))
+});
+
+router.post('/sorted', function(req, res, next) {
+  const dataArray = req.body['data[]']
+  const data = `{${dataArray}0}`
+  Orders.save(data).then(() => res.redirect('/items'))
 });
 
 router.get('/task_details/:id', function(req, res, next) {

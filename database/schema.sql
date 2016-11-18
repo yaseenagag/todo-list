@@ -1,15 +1,7 @@
-DROP TABLE IF EXISTS users;
-CREATE TABLE users (
+DROP TABLE IF EXISTS orders;
+CREATE TABLE orders (
   id SERIAL PRIMARY KEY,
-  email VARCHAR(255),
-  password VARCHAR(255)
-);
-
-DROP TABLE IF EXISTS tabs;
-CREATE TABLE tabs (
-  id SERIAL PRIMARY KEY,
-  title VARCHAR(255),
-  user_id SERIAL NOT NULL
+  order_array INTEGER[]
 );
 
 DROP TABLE IF EXISTS tasks;
